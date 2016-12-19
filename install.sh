@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOT_FILES_DIR=~./dotfiles
+DOT_FILES_DIR=~/.dotfiles
 
 [ -e ${DOT_FILES_DIR} ] && {
     echo "${DOT_FILES_DIR} already exists.  Existing."
