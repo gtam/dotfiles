@@ -7,7 +7,7 @@ DOT_FILES_DIR=~./dotfiles
     exit 1
 }
 
-/usr/bin/git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
+git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
     echo 'Git clone failed.  Exiting.'
     exit 1
 }
