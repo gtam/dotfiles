@@ -196,3 +196,4 @@
 # }
 #
 # alias cd=cd_func
+export PROMPT_COMMAND='PS1="$(python ~/.short.pwd.py)"'
