@@ -28,7 +28,12 @@ setw -g monitor-activity on
 #bind-key v split-window -h
 #bind-key b split-window -v
 #bind-key n kill-pane
-bind-key S set-window-option synchronize-panes
+unbind s
+bind-key s set-window-option synchronize-panes
+bind-key S choose-tree
+
+#force a reload of the config file
+bind R source-file ~/.tmux.conf
 
 #bind-key J resize-pane -D 5
 #bind-key K resize-pane -U 5
@@ -61,6 +66,10 @@ bind -n M-Down select-pane -D
 # Shift arrow to switch windows
 bind -n S-Left  previous-window
 bind -n S-Right next-window
+
+#join panes to other windows
+bind -n S-Up command-prompt -p "join pane from:" "join-pane -s '%%'"
+bind -n S-Down command-prompt -p "send pane to:" "join-pane -t '%%'"
 
 # No delay for escape key press
 set -sg escape-time 0
