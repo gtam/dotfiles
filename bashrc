@@ -197,5 +197,5 @@
 #
 # alias cd=cd_func
 #export PROMPT_COMMAND='PS1="$(python ~/.short.pwd.py)"'
-alias ta='sess=${1:-"0"};tmux a -t $sess'
+alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
 alias tls='tmux ls'
