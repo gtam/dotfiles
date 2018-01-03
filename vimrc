@@ -1,4 +1,3 @@
-syntax off
 set number
 set expandtab
 set ts=4
