@@ -1,0 +1,16 @@
+BoldAsFont=-1
+ClicksPlaceCursor=no
+MiddleClickAction=extend
+RightClickAction=paste
+CopyAsRTF=no
+Transparency=medium
+OpaqueWhenFocused=yes
+Locale=C
+Charset=UTF-8
+ScrollbackLines=100000
+ClicksTargetApp=yes
+ClickTargetMod=shift
+CursorType=block
+Term=xterm-256color
+Language=
+AllowSetSelection=true
