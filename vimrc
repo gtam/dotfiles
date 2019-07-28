@@ -1,6 +1,7 @@
 set number
+set ruler
 set expandtab
-set ts=4
+set ts=2
 set modeline
 set showmatch
 set showmode
