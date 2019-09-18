@@ -3,7 +3,7 @@
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
 
-for i in curl git make
+for i in git make
   do
     which $i
     retval=$?
