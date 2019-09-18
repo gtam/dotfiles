@@ -12,9 +12,11 @@ TMUX_FILES_DIR=~/.tmux
     echo "${TMUX_FILES_DIR} already exists.  Exiting."
     exit 1
 }
+
 git clone https://github.com/gpakosz/.tmux.git ${TMUX_FILES_DIR} || {
     echo "Git clone failed. Exiting"
     exit 1
+}
 ln -s -f ~/.tmux/.tmux.conf ~/.
 
 git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
