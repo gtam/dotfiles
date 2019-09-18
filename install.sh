@@ -9,6 +9,7 @@ for i in git make
     retval=$?
     if [ $retval = 1 ]; then
       echo $i not found
+      exit 1
     fi
   done
 
