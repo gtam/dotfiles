@@ -3,6 +3,15 @@
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
 
+for i in curl git make
+  do
+    which $i
+    retval=$?
+    if [ $retval = 1 ]; then
+      echo $i not found
+    fi
+  done
+
 [ -e ${DOT_FILES_DIR} ] && {
     echo "${DOT_FILES_DIR} already exists.  Exiting."
     exit 1
