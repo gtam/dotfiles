@@ -8,7 +8,9 @@ for i in git make
     which $i
     retval=$?
     if [ $retval = 1 ]; then
-      echo $i not found
+      echo
+      echo $i command not found; retry after install
+      echo
       exit 1
     fi
   done
