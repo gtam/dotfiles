@@ -9,7 +9,7 @@ for i in git make
     retval=$?
     if [ $retval = 1 ]; then
       echo
-      echo "$i command not found, retry after install."
+      echo "Error: $i command not found, retry after install."
       echo
       exit 1
     fi
