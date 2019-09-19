@@ -199,3 +199,7 @@
 #export PROMPT_COMMAND='PS1="$(python ~/.short.pwd.py)"'
 alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
 alias tls='tmux ls'
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+source <(kops completion bash)
+source <(kubectl completion bash)
