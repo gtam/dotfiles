@@ -335,11 +335,13 @@ set -g @tpm_plugins '          \
   tmux-plugins/tpm             \
   tmux-plugins/tmux-resurrect  \
   tmux-plugins/tmux-logging  \
+  tmux-plugins/tmux-continuum \
 '
 
 set -g @resurrect-capture-pane-contents 'on'
 set -g @resurrect-strategy-vim 'session'
 set -g @resurrect-processes 'ssh vi vim man less more tail top htop'
+set -g @continuum-restore 'on'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
