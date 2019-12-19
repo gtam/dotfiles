@@ -71,3 +71,5 @@ if [ -f '/Users/gtam/Repos/google-cloud-sdk/path.bash.inc' ]; then . '/Users/gta
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc'; fi
+
+for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
