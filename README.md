@@ -4,7 +4,9 @@
 
 ## INSTALL ##
 curl https://raw.githubusercontent.com/gtam/dotfiles/master/install.sh | bash
+
 OR
+
 curl https://tinyurl.com/gtdotfiles | bash
 
 ## Chanages ##
