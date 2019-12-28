@@ -4,5 +4,5 @@ install:
 	do \
 		echo "Installing $${SOURCE_DOTFILE}." ; \
 		DEST_DOTFILE=~/.$${SOURCE_DOTFILE} ; \
-		install -v --backup=numbered -C -m 644 $$SOURCE_DOTFILE $$DEST_DOTFILE ; \
+		install -v -b -C -m 644 $$SOURCE_DOTFILE $$DEST_DOTFILE ; \
 	done

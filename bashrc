@@ -80,9 +80,9 @@
 # Aliases
 #
 # Some people use a different file for aliases
-# if [ -f "${HOME}/.bash_aliases" ]; then
-#   source "${HOME}/.bash_aliases"
-# fi
+if [ -f "${HOME}/.bash_aliases" ]; then
+  source "${HOME}/.bash_aliases"
+fi
 #
 # Some example alias instructions
 # If these are enabled they will be used instead of any instructions
@@ -196,10 +196,6 @@
 # }
 #
 # alias cd=cd_func
-#export PROMPT_COMMAND='PS1="$(python ~/.short.pwd.py)"'
-alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
-alias tls='tmux ls'
-
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 source <(kops completion bash)
 source <(kubectl completion bash)
