@@ -196,6 +196,3 @@ fi
 # }
 #
 # alias cd=cd_func
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-source <(kops completion bash)
-source <(kubectl completion bash)
