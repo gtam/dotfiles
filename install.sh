@@ -19,7 +19,7 @@ for i in git make
 [ -e ${DOT_FILES_DIR} ] && {
     echo "${DOT_FILES_DIR} already exists.  Delete ${DOT_FILES_DIR} and continue? "
     read -p '(Y/n): ' decision1
-    if [[ $decision1 == 'Y' ]]; then
+    if [[ "$decision1" == "Y" ]]; then
       rm -rf ${DOT_FILES_DIR}
     else
       exit 1
@@ -29,7 +29,7 @@ for i in git make
 [ -e ${TMUX_FILES_DIR} ] && {
     echo "${TMUX_FILES_DIR} already exists.  Delete ${TMUX_FILES_DIR} and continue? "
     read -p '(Y/n): ' decision2
-    if [[ $decision2 == 'Y' ]]; then
+    if [[ "$decision2" == "Y" ]]; then
       rm -rf ${TMUX_FILES_DIR}
     else
       exit 1
