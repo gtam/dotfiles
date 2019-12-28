@@ -72,6 +72,18 @@ if [ -f '/Users/gtam/Repos/google-cloud-sdk/path.bash.inc' ]; then . '/Users/gta
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc'; fi
 
+# Setup KOPS and KUBECTL autocompletion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+for i in kops kubectl
+  do
+    which $i
+    retval=$?
+    if [ $retval = 0 ]; then
+      source <($i completion bash)
+    fi
+  done
+
+# Setup KUBECONFIG to include all config-* files from ~/.kube folder
 if [[ -z "${KUBECONFIG}" ]]; then
   for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
 fi
