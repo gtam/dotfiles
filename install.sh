@@ -4,6 +4,20 @@
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
 
+usage() {
+    echo
+    echo Usage:
+    echo "curl https://raw.githubusercontent.com/gtam/dotfiles/master/install.sh | bash [-s help|reset]"
+    echo "OR"
+    echo "curl -L https://tinyurl.com/gtdotfiles | bash [-s help|reset]"
+    echo
+}
+
+if [ "$1" = "help" ]; then
+    usage
+    exit 0
+fi
+
 for i in git make
   do
     which $i
@@ -16,15 +30,19 @@ for i in git make
     fi
   done
 
-[ -e ${DOT_FILES_DIR} ] && {
-  echo "${DOT_FILES_DIR} already exists.  Exiting."
-  exit 1
-}
+if [ -e ${DOT_FILES_DIR} ] && [ "$1" = "reset" ]; then
+    rm -rf ${DOT_FILES_DIR}
+else
+    echo "${DOT_FILES_DIR} already exists.  Exiting."
+    exit 1
+fi
 
-[ -e ${TMUX_FILES_DIR} ] && {
-  echo "${TMUX_FILES_DIR} already exists.  Exiting. "
-  exit 1
-}
+if [ -e ${TMUX_FILES_DIR} ] && [ "$1" = "reset" ]; then
+    rm -rf ${TMUX_FILES_DIR}
+else
+    echo "${TMUX_FILES_DIR} already exists.  Exiting. "
+    exit 1
+fi
 
 git clone https://github.com/gpakosz/.tmux.git ${TMUX_FILES_DIR} || {
     echo "Git clone failed. Exiting"
