@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 
 if [ -d "$HOME/.oh-my-zsh" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
