@@ -4,5 +4,9 @@ alias tls='tmux ls'
 
 ### Kubernetes ###
 ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-alias k=kubectl
-complete -F __start_kubectl k
+which kubectl
+retval=$?
+if [ $retval = 0 ]; then
+  alias k=kubectl
+  complete -F __start_kubectl k
+fi
