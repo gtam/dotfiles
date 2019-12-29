@@ -11,6 +11,7 @@ usage() {
     echo "OR"
     echo "curl -L https://tinyurl.com/gtdotfiles | bash [-s help|reset]"
     echo
+    echo "Optional parameters to show this help or to force delete the ~/.dotfiles and ~/.tmux folders."
 }
 
 if [ "$1" = "help" ]; then
