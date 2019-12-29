@@ -31,14 +31,14 @@ for i in git make
     fi
   done
 
-if [ -e ${DOT_FILES_DIR} ] && [ "$1" = "reset" ]; then
+if [ -d ${DOT_FILES_DIR} ] && [ "$1" = "reset" ]; then
     rm -rf ${DOT_FILES_DIR}
 else
     echo "${DOT_FILES_DIR} already exists.  Run with "| bash -s help" for help.  Exiting."
     exit 1
 fi
 
-if [ -e ${TMUX_FILES_DIR} ] && [ "$1" = "reset" ]; then
+if [ -d ${TMUX_FILES_DIR} ] && [ "$1" = "reset" ]; then
     rm -rf ${TMUX_FILES_DIR}
 else
     echo "${TMUX_FILES_DIR} already exists.  Run with "| bash -s help" for help.  Exiting. "
