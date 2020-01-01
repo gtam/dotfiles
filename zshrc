@@ -141,3 +141,7 @@ if [ $retval = 0 ]; then
   alias k=kubectl
   complete -F __start_kubectl k
 fi
+# Setup KUBECONFIG to include all config-* files from ~/.kube folder
+if [[ -z "${KUBECONFIG}" ]]; then
+  for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
+fi
