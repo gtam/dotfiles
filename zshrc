@@ -138,6 +138,9 @@ fi
 echo $SHELL | grep 'zsh' > /dev/null
 retval=$?
 if [ $retval = 1 ]; then
+### Disable shopt nomatch ###
+  setopt +o nomatch
+### Alias kubectl ###
   which kubectl
   retval=$?
   if [ $retval = 0 ]; then
@@ -150,5 +153,3 @@ if [[ -z "${KUBECONFIG}" ]]; then
   for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
 fi
 #
-### Disable shopt nomatch ###
-setopt +o nomatch
