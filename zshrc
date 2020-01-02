@@ -149,3 +149,6 @@ fi
 if [[ -z "${KUBECONFIG}" ]]; then
   for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
 fi
+#
+### Disable shopt nomatch ###
+setopt +o nomatch
