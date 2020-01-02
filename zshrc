@@ -135,11 +135,15 @@ if [ $retval = 0 ]; then
 fi
 ### Kubernetes ###
 ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-which kubectl
+grep zsh $SHELL
 retval=$?
-if [ $retval = 0 ]; then
-  alias k=kubectl
-  complete -F __start_kubectl k
+if [ $retval = 1 ]; then
+  which kubectl
+  retval=$?
+  if [ $retval = 0 ]; then
+    alias k=kubectl
+    complete -F __start_kubectl k
+  fi
 fi
 # Setup KUBECONFIG to include all config-* files from ~/.kube folder
 if [[ -z "${KUBECONFIG}" ]]; then
