@@ -127,7 +127,7 @@ else
 fi
 #
 ### TMUX ###
-which tmux
+which tmux > /dev/null
 retval=$?
 if [ $retval = 0 ]; then
   alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
@@ -135,7 +135,7 @@ if [ $retval = 0 ]; then
 fi
 ### Kubernetes ###
 ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-echo $SHELL | grep 'zsh'
+echo $SHELL | grep 'zsh' > /dev/null
 retval=$?
 if [ $retval = 1 ]; then
   which kubectl
