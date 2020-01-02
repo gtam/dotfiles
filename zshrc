@@ -135,7 +135,7 @@ if [ $retval = 0 ]; then
 fi
 ### Kubernetes ###
 ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-grep zsh $SHELL
+grep 'zsh' $SHELL
 retval=$?
 if [ $retval = 1 ]; then
   which kubectl
