@@ -153,3 +153,6 @@ if [[ -z "${KUBECONFIG}" ]]; then
   for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
 fi
 #
+if [ $TERM = "xterm-256color" ]; then
+    unalias ls
+fi
