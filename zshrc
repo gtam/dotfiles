@@ -141,25 +141,26 @@ if [ $retval = 1 ]; then
 ### Disable shopt nomatch ###
   setopt +o nomatch
 ### Local history vs Global History with up arrow vs ctrl-up_arrow
-bindkey "${key[Up]}" up-line-or-local-history
-bindkey "${key[Down]}" down-line-or-local-history
+  bindkey "${key[Up]}" up-line-or-local-history
+  bindkey "${key[Down]}" down-line-or-local-history
 
-up-line-or-local-history() {
-  zle set-local-history 1
-  zle up-line-or-history
-  zle set-local-history 0
-}
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-  zle set-local-history 1
-  zle down-line-or-history
-  zle set-local-history 0
-}
-zle -N down-line-or-local-history
-bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
-bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
+  up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+  }
+  zle -N up-line-or-local-history
+  down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+  }
+  zle -N down-line-or-local-history
+  bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
+  bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
+fi
 ### Alias kubectl ###
-which kubectl
+which kubectl > /dev/null
 retval=$?
 if [ $retval = 0 ]; then
   alias k=kubectl
