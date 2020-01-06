@@ -171,6 +171,6 @@ if [ $retval = 0 ]; then
     fi
 fi
 #
-if [ $TERM = "xterm-256color" ] || [  $TERM = "screen-256color"] ; then
-    unalias ls
+if [ $TERM = "xterm-256color" ] || [ $TERM = "xterm-256color" ]; then
+  unalias ls
 fi
