@@ -159,20 +159,17 @@ zle -N down-line-or-local-history
 bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
 bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
 ### Alias kubectl ###
-which kubectl
+which kubectl > /dev/null
 retval=$?
 if [ $retval = 0 ]; then
   alias k=kubectl
   complete -F __start_kubectl k
-  if [[ -z "${KUBECONFIG}" ]]; then
-    for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
-  fi
-fi
 # Setup KUBECONFIG to include all config-* files from ~/.kube folder
-if [[ -z "${KUBECONFIG}" ]]; then
-  for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
+    if [[ -z "${KUBECONFIG}" ]]; then
+      for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
+    fi
 fi
 #
-if [ $TERM = "xterm-256color" ]; then
-    unalias ls
+if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
+  unalias ls
 fi
