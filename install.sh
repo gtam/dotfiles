@@ -34,15 +34,19 @@ for i in git make
 if [ -d ${DOT_FILES_DIR} ] && [ "$1" = "reset" ]; then
     rm -rf ${DOT_FILES_DIR}
 else
-    echo "${DOT_FILES_DIR} already exists.  Run with '| bash -s help' for help.  Exiting."
-    exit 1
+    if [ -d ${DOT_FILES_DIR} ]; then
+        echo "${DOT_FILES_DIR} already exists.  Run with '| bash -s help' for help.  Exiting."
+        exit 1
+    fi
 fi
 
 if [ -d ${TMUX_FILES_DIR} ] && [ "$1" = "reset" ]; then
     rm -rf ${TMUX_FILES_DIR}
 else
-    echo "${TMUX_FILES_DIR} already exists.  Run with '| bash -s help' for help.  Exiting. "
-    exit 1
+    if [ -d ${TMUX_FILES_DIR} ]; then
+        echo "${TMUX_FILES_DIR} already exists.  Run with '| bash -s help' for help.  Exiting. "
+        exit 1
+    fi
 fi
 
 git clone https://github.com/gpakosz/.tmux.git ${TMUX_FILES_DIR} || {
