@@ -158,6 +158,7 @@ down-line-or-local-history() {
 zle -N down-line-or-local-history
 bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
 bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
+fi
 ### Alias kubectl ###
 which kubectl > /dev/null
 retval=$?
