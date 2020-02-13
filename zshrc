@@ -98,13 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/bin" ] ; then
-  PATH="${HOME}/bin:${PATH}"
-fi
 #
 SSH_ENV="$HOME/.ssh/environment"
-
 function start_agent {
   echo "Initialising new SSH agent..."
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
@@ -133,8 +128,7 @@ if [ $retval = 0 ]; then
   alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
   alias tls='tmux ls'
 fi
-### Kubernetes ###
-### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+### Check for ZSH ###
 echo $SHELL | grep 'zsh' > /dev/null
 retval=$?
 if [ $retval = 1 ]; then
@@ -159,6 +153,8 @@ zle -N down-line-or-local-history
 bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
 bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
 fi
+### Kubernetes ###
+### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 ### Alias kubectl ###
 which kubectl > /dev/null
 retval=$?
@@ -173,4 +169,14 @@ fi
 #
 if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
   unalias ls
+fi
+#
+# Set PATH so it includes user's private bin if it exists
+if [ -d "${HOME}/bin" ] ; then
+  PATH="${HOME}/bin:${PATH}"
+fi
+#
+if [ -d "/usr/local/go/bin" ] ; then
+  GOPATH="${HOME}/go
+  PATH="${GOPATH}/bin:${PATH}"
 fi
