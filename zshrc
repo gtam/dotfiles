@@ -177,6 +177,6 @@ if [ -d "${HOME}/bin" ] ; then
 fi
 #
 if [ -d "/usr/local/go/bin" ] ; then
-  GOPATH="${HOME}/go
+  GOPATH="${HOME}/go"
   PATH="${GOPATH}:${GOPATH}/bin:${PATH}"
 fi
