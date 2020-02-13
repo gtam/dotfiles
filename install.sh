@@ -52,8 +52,9 @@ fi
 git clone https://github.com/gpakosz/.tmux.git ${TMUX_FILES_DIR} || {
     echo "Git clone failed. Exiting"
     exit 1
-git clone https://github.com/tmux-plugins/tpm ${TMUX_FILES_DIR}/plugins/tpm
 }
+
+git clone https://github.com/tmux-plugins/tpm ${TMUX_FILES_DIR}/plugins/tpm
 ln -s -f ~/.tmux/.tmux.conf ~/.
 
 git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
