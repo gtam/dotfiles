@@ -1,0 +1,3 @@
+#!/bin/sh
+cd ~
+curl -L https://tinyurl.com/gtdotfiles | bash -s reset
