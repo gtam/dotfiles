@@ -99,34 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-### Tmux ###
-which tmux
-retval=$?
-if [ $retval = 0 ]; then
-  alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
-  alias tls='tmux ls'
-fi
-### Kubernetes ###
-### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-which kubectl
-retval=$?
-if [ $retval = 0 ]; then
-  alias k=kubectl
-  complete -F __start_kubectl k
-fi
-#
-### Source ~/.aliases.local
-if [ -f ${HOME}/.aliases.local ]; then
-  source ${HOME}/.aliases.local
-fi
-#
-# Setup KUBECONFIG to include all config-* files from ~/.kube folder
-if [[ -z "${KUBECONFIG}" ]] && [[ -d ${HOME}/.kube ]]; then
-  for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
-fi
-#
+
 if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
   unalias ls
 fi
 #
-
