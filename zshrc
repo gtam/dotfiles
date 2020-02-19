@@ -88,7 +88,35 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+#
+### ZSH CUSTOMIZATIONS ###
+#
+### Check for ZSH ###
+echo $SHELL | grep 'zsh' > /dev/null
+retval=$?
+if [ $retval = 1 ]; then
+### Disable shopt nomatch ###
+  setopt +o nomatch
+### Local history vs Global History with up arrow vs ctrl-up_arrow
+bindkey "${key[Up]}" up-line-or-local-history
+bindkey "${key[Down]}" down-line-or-local-history
 
+up-line-or-local-history() {
+  zle set-local-history 1
+  zle up-line-or-history
+  zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+  zle set-local-history 1
+  zle down-line-or-history
+  zle set-local-history 0
+}
+zle -N down-line-or-local-history
+bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
+bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
+fi
+#
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -119,6 +147,8 @@ if [ -f ${HOME}/.aliases.local ]; then
   source ${HOME}/.aliases.local
 fi
 #
+### SSH_AGENT ###
+#
 SSH_ENV="$HOME/.ssh/environment"
 function start_agent {
   echo "Initialising new SSH agent..."
@@ -141,46 +171,6 @@ else
   start_agent;
 fi
 #
-### TMUX ###
-which tmux > /dev/null
-retval=$?
-if [ $retval = 0 ]; then
-  alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
-  alias tls='tmux ls'
-fi
-### Check for ZSH ###
-echo $SHELL | grep 'zsh' > /dev/null
-retval=$?
-if [ $retval = 1 ]; then
-### Disable shopt nomatch ###
-  setopt +o nomatch
-### Local history vs Global History with up arrow vs ctrl-up_arrow
-bindkey "${key[Up]}" up-line-or-local-history
-bindkey "${key[Down]}" down-line-or-local-history
-
-up-line-or-local-history() {
-  zle set-local-history 1
-  zle up-line-or-history
-  zle set-local-history 0
-}
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-  zle set-local-history 1
-  zle down-line-or-history
-  zle set-local-history 0
-}
-zle -N down-line-or-local-history
-bindkey "^[[1;3A" up-line-or-history    # [CTRL] + Cursor up
-bindkey "^[[1;3B" down-line-or-history  # [CTRL] + Cursor down
-fi
-### Kubernetes ###
-### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-### Alias kubectl ###
-which kubectl > /dev/null
-retval=$?
-if [ $retval = 0 ]; then
-  alias k=kubectl
-  complete -F __start_kubectl k
 # Setup KUBECONFIG to include all config-* files from ~/.kube folder
     if [[ -z "${KUBECONFIG}" ]] && [[ -d ${HOME}/.kube ]]; then
       for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
