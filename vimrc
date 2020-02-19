@@ -21,7 +21,7 @@ set nocompatible
 filetype indent plugin on
  
 " Enable syntax highlighting
-syntax on
+"syntax on
  
  
 "------------------------------------------------------------
@@ -75,20 +75,20 @@ set hlsearch
 " use is very much a personal preference, but they are harmless.
  
 " Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
+"set ignorecase
+"set smartcase
  
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
  
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
-set autoindent
+"set autoindent
  
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
 " coming from other editors would expect.
-set nostartofline
+"set nostartofline
  
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
@@ -117,7 +117,7 @@ set t_vb=
 set cmdheight=2
  
 " Display line numbers on the left
-set number
+"set number
  
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
