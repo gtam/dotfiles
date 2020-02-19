@@ -100,8 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
-### Source ~/.rc-aliases.local
-if [ -f ${HOME}/.aliases.local ]; then
-  source ${HOME}/.aliases.local
-fi
+### Source ~/.rc-*.local
+for rc in `ls ${HOME}/.rc-*.local`; do
+  source ${HOME}/${rc}
+done
 
