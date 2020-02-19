@@ -99,8 +99,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-
-if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
-  unalias ls
-fi
 #
+### Source ~/.rc-aliases.local
+if [ -f ${HOME}/.aliases.local ]; then
+  source ${HOME}/.aliases.local
+fi
+
