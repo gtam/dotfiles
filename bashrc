@@ -80,27 +80,11 @@
 # Aliases
 #
 # Some people use a different file for aliases
-### Tmux ###
-which tmux
-retval=$?
-if [ $retval = 0 ]; then
-  alias ta='sess=$(tmux ls -F#S|tail -1);tmux a -t ${sess:-0}'
-  alias tls='tmux ls'
-fi
-### Kubernetes ###
-### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-which kubectl
-retval=$?
-if [ $retval = 0 ]; then
-  alias k=kubectl
-  complete -F __start_kubectl k
-fi
-#
 ### Source ~/.aliases.local
 #
-if [ -f "${HOME}/.aliases.local" ]; then
-  source "${HOME}/.aliases.local"
-fi
+#if [ -f "${HOME}/.aliases.local" ]; then
+#  source "${HOME}/.aliases.local"
+#fi
 #
 # Some example alias instructions
 # If these are enabled they will be used instead of any instructions
@@ -214,3 +198,7 @@ fi
 # }
 #
 # alias cd=cd_func
+### Source ~/.rc-*.local
+for rc in `ls ${HOME}/.rc-*.local`; do
+  source ${HOME}/${rc}
+done
