@@ -104,4 +104,8 @@ source $ZSH/oh-my-zsh.sh
 for rc in `ls ${HOME}/.rc-*.local`; do
   source ${HOME}/${rc}
 done
+### Source ~/.zsh.local
+if [ -f ${HOME}/.zsh.local ]; then 
+  source ${HOME}/.zsh.local
+fi
 
