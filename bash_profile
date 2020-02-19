@@ -57,5 +57,5 @@ for i in kops kubectl
 #
 ### Source ~/.rc-*.local
 for rc in `ls ${HOME}/.rc-*.local`; do
-  source ${HOME}/${rc}
+  source ${rc}
 done
