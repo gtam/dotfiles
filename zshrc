@@ -156,12 +156,4 @@ if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
   unalias ls
 fi
 #
-# Set PATH so it includes user's private bin if it exists
-if [ -d "${HOME}/bin" ] ; then
-  PATH="${HOME}/bin:${PATH}"
-fi
-#
-if [ -d "/usr/local/go/bin" ] ; then
-  GOPATH="${HOME}/go"
-  PATH="${GOPATH}:${GOPATH}/bin:${PATH}"
-fi
+
