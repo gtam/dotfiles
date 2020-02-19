@@ -102,10 +102,9 @@ source $ZSH/oh-my-zsh.sh
 #
 ### Source ~/.rc-*.local
 for rc in `ls ${HOME}/.rc-*.local`; do
-  source ${HOME}/${rc}
+  source ${rc}
 done
 ### Source ~/.zsh.local
 if [ -f ${HOME}/.zsh.local ]; then 
   source ${HOME}/.zsh.local
 fi
-
