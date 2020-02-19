@@ -202,3 +202,7 @@
 for rc in `ls ${HOME}/.rc-*.local`; do
   source ${HOME}/${rc}
 done
+### Source ~/.bashrc.local
+if [ -f "${HOME}/.bashrc.local" ] ; then
+  source "${HOME}/.bashrc.local"
+fi
