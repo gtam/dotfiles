@@ -1,1 +1,3 @@
 ### Localize Aliases ###
+# alias knv="kubectl -n neuvector"
+# alias resetdotfiles="curl -L http://tinyurl.com/gtdotfiles | bash -s reset
