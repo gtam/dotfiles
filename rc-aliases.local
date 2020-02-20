@@ -7,5 +7,5 @@ if [ $retval = 0 ]; then
 fi
 #
 #### Localize Aliases ###
-alias resetdotfiles="curl -L http://tinyurl.com/gtdotfiles | bash -s reset"
+alias resetdotfiles="curl -L https://tinyurl.com/gtdotfiles | bash -s reset"
 # alias knv="kubectl -n neuvector"
