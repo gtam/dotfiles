@@ -8,10 +8,17 @@ if [ -f '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc' ]; then . '/Use
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 for i in kops kubectl
   do
-    which $i
+    which $i > /dev/null
     retval=$?
     if [ $retval = 0 ]; then
       source <($i completion bash)
     fi
   done
 #
+### Kubernetes ###
+### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+which kubectl
+retval=$?
+if [ $retval = 0 ]; then
+  complete -F __start_kubectl k
+fi
