@@ -1,8 +1,8 @@
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/gtam/Repos/google-cloud-sdk/path.bash.inc' ]; then . '/Users/gtam/Repos/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/gtam/Repos/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
 
 # Setup KOPS and KUBECTL autocompletion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -17,7 +17,7 @@ for i in kops kubectl
 #
 ### Kubernetes ###
 ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-which kubectl
+which kubectl > /dev/null
 retval=$?
 if [ $retval = 0 ]; then
   complete -F __start_kubectl k
