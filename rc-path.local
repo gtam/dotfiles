@@ -1,7 +1,3 @@
-# Setup KUBECONFIG to include all config-* files from ~/.kube folder
-if [[ -z "${KUBECONFIG}" ]] && [[ -d ${HOME}/.kube ]]; then
-  for i in `ls $HOME/.kube/config*`;do export KUBECONFIG=$KUBECONFIG:$i; done
-fi
 # Set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
   PATH="${HOME}/bin:${PATH}"
