@@ -198,11 +198,8 @@
 # }
 #
 # alias cd=cd_func
+#
 ### Source ~/.rc-*.local
 for rc in `ls ${HOME}/.rc-*.local`; do
-  source ${HOME}/${rc}
+  source ${rc}
 done
-### Source ~/.bashrc.local
-if [ -f "${HOME}/.bashrc.local" ] ; then
-  source "${HOME}/.bashrc.local"
-fi
