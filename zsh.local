@@ -19,6 +19,9 @@ if [ "$0" = "zsh" ]; then
       zle set-local-history 0
   }
   zle -N down-line-or-local-history
+  
+  bindkey "^[[1;5A" up-line-or-history    # [CTRL] + Cursor up
+  bindkey "^[[1;5B" down-line-or-history  # [CTRL] + Cursor down
 fi
 #
 if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
