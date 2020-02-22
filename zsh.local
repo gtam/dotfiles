@@ -3,7 +3,7 @@
 if [ "$0" = "zsh" ]; then
 ### Disable shopt nomatch ###
   setopt +o nomatch
-  ### Local history vs Global History with up arrow vs ctrl-up_arrow
+### Local history vs Global History with up arrow vs ctrl-up_arrow
   bindkey "${key[Up]}" up-line-or-local-history
   bindkey "${key[Down]}" down-line-or-local-history
   up-line-or-local-history() {
