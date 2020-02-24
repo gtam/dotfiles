@@ -105,6 +105,6 @@ for rc in `ls ${HOME}/.rc-*.local`; do
   source ${rc}
 done
 ### Source ~/.zsh.local
-if [ -f ${HOME}/.zsh.local ]; then 
-  source ${HOME}/.zsh.local
+if [ -f ${HOME}/.zshrc.local ]; then 
+  source ${HOME}/.zshrc.local
 fi
