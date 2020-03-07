@@ -115,3 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+### Source ~/.rc-*.local
+for rc in `ls ${HOME}/.rc-*.local`; do
+  source ${rc}
+done
