@@ -1,14 +1,12 @@
-### Check for ZSH ###
-if [ "$0" = "zsh" ]; then
-  # The next line updates PATH for the Google Cloud SDK.
-  if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud-sdk/path.bash.inc"; fi
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then . "${HOME}/google-cloud-sdk/path.bash.inc"; fi
 
-  # The next line enables shell command completion for gcloud.
-  if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/google-cloud-sdk/completion.bash.inc" ]; then . "${HOME}/google-cloud-sdk/completion.bash.inc"; fi
 
-  # Setup KOPS and KUBECTL autocompletion
-  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-  for i in kops kubectl
+# Setup KOPS and KUBECTL autocompletion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+for i in kops kubectl
     do
       which $i > /dev/null
       retval=$?
@@ -16,14 +14,13 @@ if [ "$0" = "zsh" ]; then
         source <($i completion bash)
       fi
     done
-  #
-  ### Kubernetes ###
-  ### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-  which kubectl > /dev/null
-  retval=$?
-  if [ $retval = 0 ]; then
-    complete -F __start_kubectl k
-  fi
+
+### Kubernetes ###
+### https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+which kubectl > /dev/null
+retval=$?
+if [ $retval = 0 ]; then
+  complete -F __start_kubectl k
 fi
 #
 ### Setup KUBECONFIG to include all config-* files from ~/.kube folder
