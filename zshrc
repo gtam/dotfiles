@@ -100,6 +100,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
 ### SSH_AGENT ###
 #
 SSH_ENV="$HOME/.ssh/environment"
@@ -126,11 +129,6 @@ fi
 #
 
 ### Source ~/.rc.local
-for rc in `ls ${HOME}/.rc-*.local`; do
-  source ${rc}
-done
-
-### Source ~/.rc-*.local
 for rc in `ls ${HOME}/.rc-*.local`; do
   source ${rc}
 done
