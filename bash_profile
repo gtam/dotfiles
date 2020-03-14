@@ -1,3 +1,4 @@
+echo "~/.bash_profile loading..."
 # To the extent possible under law, the author(s) have dedicated all
 # copyright and related and neighboring rights to this software to the
 # public domain worldwide. This software is distributed without any warranty.
@@ -24,8 +25,8 @@
 # User dependent .bash_profile file
 
 # source the users bashrc if it exists
-if [ -f "${HOME}/.bashrc" ] ; then
-  source "${HOME}/.bashrc"
+if [ -f "${HOME}/.bashrc" ]; then
+  . "${HOME}/.bashrc"
 fi
 
 # Set MANPATH so it includes users' private man if it exists
