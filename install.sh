@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -x
+set -x
 
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
