@@ -10,6 +10,7 @@ fi
 alias resetdotfiles="curl -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
 alias knvwatch="watch kubectl -n neuvector get pods,svc,deploy,cronjob -o wide"
+alias knvwatchrs="watch kubectl -n neuvector get pods,deploy,rs -o wide"
 alias knvwatchall="watch kubectl -n neuvector get all -o wide"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvlfc() {kubectl -n neuvector logs -f --since 1m `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
