@@ -15,3 +15,4 @@ alias knvwatchall="watch kubectl -n neuvector get all -o wide"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvlfc() {kubectl -n neuvector logs -f --since 1m `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep manager | awk '{print $1}'` -- cli}
+knvlfccli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
