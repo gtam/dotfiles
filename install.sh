@@ -3,7 +3,7 @@
 
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
-POWERLEVEL10K=~/.oh-my-zsh/custom}/themes/powerlevel10k
+POWERLEVEL10K=~/.oh-my-zsh/custom/themes/powerlevel10k
 
 usage() {
     echo
