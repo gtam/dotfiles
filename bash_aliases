@@ -1,4 +1,4 @@
-echo "~/.bash_aliases loading..."
+#echo "~/.bash_aliases loading..."
 # Alias Tmux 
 which tmux > /dev/null
 retval=$?
@@ -9,7 +9,7 @@ fi
 #### Localize Aliases ###
 alias resetdotfiles="curl -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
-alias knvwatch="watch kubectl -n neuvector get pods,svc,deploy,cronjob -o wide"
+alias knvwatch="watch kubectl -n neuvector get pods,svc,sts,deploy,ds,cronjob -o wide"
 alias knvwatchrs="watch kubectl -n neuvector get deploy,ds,rs -o wide"
 alias knvwatchall="watch kubectl -n neuvector get all -o wide"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
