@@ -50,15 +50,23 @@ else
 fi
 
 git clone https://github.com/gpakosz/.tmux.git ${TMUX_FILES_DIR} || {
-    echo "Git clone failed. Exiting"
+    echo "Git clone .tmux repo failed. Exiting"
     exit 1
 }
 
-git clone https://github.com/tmux-plugins/tpm ${TMUX_FILES_DIR}/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ${TMUX_FILES_DIR}/plugins/tpm || {
+    echo "Git clone tmux-plugins repo failed.  Exiting"
+    exit 1
+}
 ln -s -f ~/.tmux/.tmux.conf ~/.
 
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k || {
+    echo "git clone powerlevel10k repo failed.  Exiting"
+    exit 1
+}
+
 git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
-    echo "Git clone failed.  Exiting."
+    echo "Git clone dotfiles repo failed.  Exiting."
     exit 1
 }
 
