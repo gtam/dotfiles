@@ -83,3 +83,7 @@ git clone https://github.com/gtam/dotfiles.git ${DOT_FILES_DIR} || {
 cd ${DOT_FILES_DIR}
 
 make install
+
+echo ""
+echo "Issue CTRL-b, CTRL-I to install TMUX plugins."
+echo "Issue CTRL-b, CTRL-U to update TMUX plugins."
