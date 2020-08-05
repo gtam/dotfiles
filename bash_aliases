@@ -7,7 +7,7 @@ if [ $retval = 0 ]; then
   alias tls='tmux ls'
 fi
 #### Localize Aliases ###
-alias resetdotfiles="curl -L https://tinyurl.com/gtdotfiles | bash -s reset"
+alias resetdotfiles="curl -s -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
 alias knvwatch="watch kubectl -n neuvector get pods,svc,sts,deploy,ds,cronjob -o wide"
 alias knvwatchrs="watch kubectl -n neuvector get deploy,ds,rs -o wide"
