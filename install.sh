@@ -3,6 +3,7 @@
 
 DOT_FILES_DIR=~/.dotfiles
 TMUX_FILES_DIR=~/.tmux
+POWERLEVEL10K=~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 usage() {
     echo
@@ -45,6 +46,15 @@ if [ -d ${TMUX_FILES_DIR} ] && [ "$1" = "reset" ]; then
 else
     if [ -d ${TMUX_FILES_DIR} ]; then
         echo "${TMUX_FILES_DIR} already exists.  Run with '| bash -s help' for help.  Exiting. "
+        exit 1
+    fi
+fi
+
+if [ -d ${POWERLEVEL10K} ] && [ "$1" = "reset" ]; then
+    rm -rf ${POWERLEVEL10K}
+else
+    if [ -d ${POWERLEVEL10K} ]; then
+        echo "${POWERLEVEL10K} already exists.  Run with '| bash -s help' for help.  Exiting. "
         exit 1
     fi
 fi
