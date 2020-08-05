@@ -22,7 +22,7 @@ fi
 
 for i in git make
   do
-    which $i
+    which $i > /dev/null
     retval=$?
     if [ $retval = 1 ]; then
       echo
@@ -85,5 +85,5 @@ cd ${DOT_FILES_DIR}
 make install
 
 echo ""
-echo "Issue CTRL-b, CTRL-I to install TMUX plugins."
-echo "Issue CTRL-b, CTRL-U to update TMUX plugins."
+echo "Issue CTRL-b I to install TMUX plugins."
+echo "Issue CTRL-b U to update TMUX plugins."
