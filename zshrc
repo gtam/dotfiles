@@ -1,4 +1,4 @@
-echo "~/.zshrc loading..."
+#echo "~/.zshrc loading..."
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
