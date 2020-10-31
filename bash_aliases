@@ -9,9 +9,9 @@ fi
 #### Localize Aliases ###
 alias resetdotfiles="curl -s -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
-alias knvwatch="watch kubectl -n neuvector get pods,svc,ingress,sts,deploy,ds,cronjob -o wide"
-alias knvwatchrs="watch kubectl -n neuvector get deploy,ds,rs -o wide"
-alias knvwatchall="watch kubectl -n neuvector get all -o wide"
+alias kwatch="watch kubectl get pods,svc,ingress,sts,deploy,ds,cronjob -o wide"
+alias kwatchrs="watch kubectl get deploy,ds,rs -o wide"
+alias kwatchall="watch kubectl get all -o wide"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvlfc() {kubectl -n neuvector logs -f --since 1m `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep manager | awk '{print $1}'` -- cli}
