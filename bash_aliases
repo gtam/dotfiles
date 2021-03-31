@@ -16,3 +16,4 @@ knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep control
 knvlfc() {kubectl -n neuvector logs -f --since 1m `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep manager | awk '{print $1}'` -- cli}
 knvctlcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'` -- sh}
+kgetall() {for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do echo "Resource:" $i; kubectl -n ${1} get --ignore-not-found ${i}; done}
