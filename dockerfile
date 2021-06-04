@@ -12,7 +12,7 @@ allinone:
         - seccomp=unconfined
         - label=disable
     environment:
-        - CLUSTER_JOIN_ADDR=[AllInOne Node IP Address]
+        - CLUSTER_JOIN_ADDR=127.0.0.1
         - NV_PLATFORM_INFO=platform=Docker
     ports:
         - 18300:18300
