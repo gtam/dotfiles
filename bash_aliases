@@ -9,11 +9,11 @@ fi
 #### Localize Aliases ###
 alias resetdotfiles="curl -s -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
-alias kwatch="watch kubectl get nodes,ns"
-alias kwatchns="watch kubectl get pods,svc,ingress,sts,deploy,ds,cronjob -o wide"
+alias kwatch="watch kubectl get nodes,ns -o wide"
+alias kwatchns="watch kubectl get pods,svc,ingress,sts,ds,deploy,cronjob,rs -o wide"
 alias knvuipf="kubectl port-forward service/neuvector-service-webui 8443:8443 -n neuvector &;kubectl port-forward service/neuvector-svc-controller-api 10443:10443 -n neuvector &"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvlfc() {kubectl -n neuvector logs -f --since 1m `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
 knvcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep manager | awk '{print $1}'` -- cli}
-knvctlcli() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'` -- sh}
+knvexecsh() {kubectl -n neuvector exec -it `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'` -- sh}
 kgetall() {for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do echo "Resource:" $i; kubectl -n ${1} get --ignore-not-found ${i}; done}
