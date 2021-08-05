@@ -9,7 +9,7 @@ fi
 #### Localize Aliases ###
 alias resetdotfiles="curl -s -L https://tinyurl.com/gtdotfiles | bash -s reset"
 alias knv="kubectl -n neuvector"
-alias kwatch="watch kubectl get nodes -o=custom-columns='NAME:metadata.name,INTERNAL-IP:status.addresses[].address,STATUS:status.conditions[4].type,VERSION:status.nodeInfo.kubeletVersion,OS-IMAGE:status.nodeInfo.osImage,KERNEL-VERSION:status.nodeInfo.kernelVersion,CONTAINER-RUNTIME:status.nodeInfo.containerRuntimeVersion'" #watch kubectl get nodes,ns -o wide"
+alias kwatch="watch kubectl get nodes,ns -o wide" #watch kubectl get nodes -o=custom-columns='NAME:metadata.name,INTERNAL-IP:status.addresses[].address,STATUS:status.conditions[4].type,VERSION:status.nodeInfo.kubeletVersion,OS-IMAGE:status.nodeInfo.osImage,KERNEL-VERSION:status.nodeInfo.kernelVersion,CONTAINER-RUNTIME:status.nodeInfo.containerRuntimeVersion'"
 alias kwatchns="watch kubectl get pods,service,ingress,statefulset,deployment,daemonset,cronjob,replicaset -o wide"
 alias knvipf="kubectl port-forward service/neuvector-service-webui 8443:8443 -n neuvector &;kubectl port-forward service/neuvector-svc-controller-api 10443:10443 -n neuvector &"
 knvlc() {kubectl -n neuvector logs `kubectl -n neuvector get pods | grep controller | awk -v row=$1 'NR==row {print $1}'`}
