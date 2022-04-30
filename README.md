@@ -1,6 +1,5 @@
 # dotfiles
 (adopted from https://github.com/jasonc/dotfiles)
-- Should also work on Cygwin
 
 ## INSTALL ##
 curl https://raw.githubusercontent.com/gtam/dotfiles/master/install.sh | bash [-s help|reset]
